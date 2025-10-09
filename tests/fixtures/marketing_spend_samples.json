@@ -1,0 +1,92 @@
+[
+  {
+    "source": "google_ads",
+    "granularity": "day",
+    "date": "2025-05-31",
+    "timezone": "America/New_York",
+    "ids": {
+      "account_id": "123",
+      "campaign_id": "456",
+      "adgroup_id": "789",
+      "ad_id": null,
+      "adset_id": null,
+      "creative_id": null
+    },
+    "names": {
+      "account_name": "Acme US",
+      "campaign_name": "Brand - US",
+      "adgroup_name": "Core",
+      "ad_name": null,
+      "adset_name": null,
+      "creative_name": null
+    },
+    "metrics": {
+      "spend": 125.5,
+      "impressions": 10000,
+      "clicks": 640,
+      "conversions": 12,
+      "revenue": null,
+      "leads": 9,
+      "reach": null,
+      "video_views": null
+    },
+    "currency": "USD",
+    "attribution": {
+      "window": "7d_click",
+      "model": "last_click"
+    },
+    "provenance": {
+      "load_id": "load-2025-06-01-01",
+      "source_file": "google_2025-05-31.json",
+      "extracted_at": "2025-06-01T01:05:00Z"
+    },
+    "extra": {
+      "network": "SEARCH"
+    }
+  },
+  {
+    "source": "meta_ads",
+    "granularity": "day",
+    "date": "2025-05-31",
+    "timezone": "America/New_York",
+    "ids": {
+      "account_id": "999",
+      "campaign_id": "AAA",
+      "adset_id": "BBB",
+      "adgroup_id": null,
+      "ad_id": "CCC",
+      "creative_id": "DDD"
+    },
+    "names": {
+      "account_name": "Acme Meta",
+      "campaign_name": "Prospecting",
+      "adset_name": "Lookalike 1%",
+      "ad_name": "Creative 3",
+      "adgroup_name": null,
+      "creative_name": "CR-3"
+    },
+    "metrics": {
+      "spend": 210.0,
+      "impressions": 23000,
+      "clicks": 900,
+      "conversions": 15,
+      "leads": 11,
+      "reach": 18000,
+      "video_views": 5000,
+      "revenue": null
+    },
+    "currency": "USD",
+    "attribution": {
+      "window": "7d_click_1d_view",
+      "model": "data_driven"
+    },
+    "provenance": {
+      "load_id": "load-2025-06-01-02",
+      "source_file": "meta_2025-05-31.json",
+      "extracted_at": "2025-06-01T01:10:00Z"
+    },
+    "extra": {
+      "objective": "LEAD_GENERATION"
+    }
+  }
+]

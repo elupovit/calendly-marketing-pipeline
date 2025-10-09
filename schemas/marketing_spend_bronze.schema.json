@@ -1,0 +1,235 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.example.com/marketing/spend_bronze.json",
+  "title": "Marketing Spend Bronze",
+  "type": "object",
+  "required": [
+    "source",
+    "date",
+    "currency",
+    "metrics",
+    "ids"
+  ],
+  "properties": {
+    "source": {
+      "type": "string",
+      "enum": [
+        "google_ads",
+        "meta_ads",
+        "linkedin_ads",
+        "tiktok_ads",
+        "bing_ads",
+        "other"
+      ]
+    },
+    "granularity": {
+      "type": "string",
+      "enum": [
+        "day",
+        "campaign",
+        "adset",
+        "ad",
+        "creative"
+      ],
+      "default": "day"
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "timezone": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "ids": {
+      "type": "object",
+      "properties": {
+        "account_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "campaign_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "adset_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "adgroup_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ad_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "creative_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "names": {
+      "type": "object",
+      "properties": {
+        "account_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "campaign_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "adset_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "adgroup_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ad_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "creative_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "metrics": {
+      "type": "object",
+      "required": [
+        "spend"
+      ],
+      "properties": {
+        "spend": {
+          "type": "number"
+        },
+        "impressions": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "clicks": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "reach": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "video_views": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "conversions": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "revenue": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "leads": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "currency": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 3
+    },
+    "attribution": {
+      "type": "object",
+      "properties": {
+        "window": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "model": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "load_id": {
+          "type": "string"
+        },
+        "source_file": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "extracted_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        }
+      },
+      "additionalProperties": false
+    },
+    "extra": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

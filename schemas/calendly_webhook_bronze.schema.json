@@ -1,0 +1,211 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.example.com/calendly/webhook_bronze.json",
+  "title": "Calendly Webhook (Invitee.*) Bronze",
+  "type": "object",
+  "required": [
+    "event",
+    "created_at",
+    "payload"
+  ],
+  "properties": {
+    "event": {
+      "type": "string",
+      "enum": [
+        "invitee.created",
+        "invitee.canceled",
+        "routing_form_submission.created"
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "created_by": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "payload": {
+      "type": "object",
+      "required": [
+        "uri"
+      ],
+      "properties": {
+        "uri": {
+          "type": "string"
+        },
+        "event": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "email": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "email"
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "first_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "last_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "timezone": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "text_reminder_number": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "active",
+            "canceled",
+            null
+          ]
+        },
+        "canceled": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "cancel_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reschedule_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "rescheduled": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "new_invitee": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "old_invitee": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "questions_and_answers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "question": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "answer": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "tracking": {
+          "type": "object",
+          "properties": {
+            "utm_campaign": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "utm_source": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "utm_medium": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "utm_content": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "utm_term": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "salesforce_uuid": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": true
+        },
+        "created_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

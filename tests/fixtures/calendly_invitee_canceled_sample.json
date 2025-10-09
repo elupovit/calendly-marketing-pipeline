@@ -1,0 +1,21 @@
+{
+  "event": "invitee.canceled",
+  "created_at": "2025-06-02T14:02:10Z",
+  "created_by": "https://api.calendly.com/users/USER_UUID",
+  "payload": {
+    "uri": "https://api.calendly.com/scheduled_events/EVT_UUID/invitees/INV_UUID_OLD",
+    "event": "https://api.calendly.com/scheduled_events/EVT_UUID",
+    "email": "guest@example.com",
+    "name": "Guest Name",
+    "status": "canceled",
+    "canceled": true,
+    "rescheduled": true,
+    "new_invitee": "https://api.calendly.com/scheduled_events/EVT_UUID/invitees/INV_UUID_NEW",
+    "cancel_url": "https://calendly.com/cancellations/def",
+    "reschedule_url": "https://calendly.com/reschedules/uvw",
+    "questions_and_answers": [],
+    "tracking": {},
+    "created_at": "2025-06-01T12:34:50Z",
+    "updated_at": "2025-06-02T14:02:10Z"
+  }
+}

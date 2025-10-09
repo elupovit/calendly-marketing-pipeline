@@ -1,0 +1,27 @@
+field,type,description
+source,string,Ad platform identifier (google_ads/meta_ads/linkedin_ads/etc.)
+granularity,string,Record grain (day/campaign/adset/ad/creative)
+date,date,Activity date in platform timezone
+timezone,string,Timezone for the report (optional)
+ids.account_id,string,Account/native id
+ids.campaign_id,string,Campaign/native id
+ids.adset_id,string,Ad set/native id (or ad group)
+ids.adgroup_id,string,Ad group (for search engines)
+ids.ad_id,string,Ad/native id
+ids.creative_id,string,Creative/native id
+names.*,string,Human-readable labels for ids
+metrics.spend,number,Required; amount spent in currency
+metrics.impressions,number,Impressions (nullable)
+metrics.clicks,number,Clicks (nullable)
+metrics.reach,number,Reach (nullable)
+metrics.video_views,number,Video views (nullable)
+metrics.conversions,number,Downstream conversions (nullable)
+metrics.revenue,number,Attributed revenue (nullable)
+metrics.leads,number,Leads (nullable)
+currency,string,"3-letter ISO currency code (e.g., USD)"
+attribution.window,string,Attribution window (optional)
+attribution.model,string,Attribution model (optional)
+provenance.load_id,string,Opaque idempotency token for this load
+provenance.source_file,string,Original filename (if batch)
+provenance.extracted_at,datetime,Extraction timestamp (UTC)
+extra,object,Vendor-specific passthrough fields

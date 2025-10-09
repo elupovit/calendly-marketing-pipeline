@@ -1,0 +1,22 @@
+field,type,description
+event,string,Webhook type: invitee.created / invitee.canceled / routing_form_submission.created
+created_at,datetime,Webhook emission timestamp (UTC)
+created_by,string,URI of actor (user/organization)
+payload.uri,string,Primary unique id of invitee resource (dedupe key)
+payload.event,string,Scheduled Event URI (use to enrich Get Event)
+payload.email,string,Invitee email
+payload.name,string,Invitee full name
+payload.first_name,string,Invitee first name
+payload.last_name,string,Invitee last name
+payload.timezone,string,Invitee timezone at booking
+payload.status,string,Invitee status: active|canceled
+payload.canceled,boolean,Whether invitee canceled
+payload.rescheduled,boolean,True if this payload relates to a reschedule action
+payload.new_invitee,string,URI of new invitee (if rescheduled)
+payload.old_invitee,string,URI of old invitee (if rescheduled)
+payload.cancel_url,string,Self-service cancel URL
+payload.reschedule_url,string,Self-service reschedule URL
+payload.questions_and_answers,array,List of Q&A responses
+payload.tracking.*,string,UTM fields and vendor tracking IDs
+payload.created_at,datetime,Invitee created timestamp
+payload.updated_at,datetime,Invitee updated timestamp
