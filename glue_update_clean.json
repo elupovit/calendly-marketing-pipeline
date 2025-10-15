@@ -1,0 +1,21 @@
+{
+  "Role": "arn:aws:iam::503122374618:role/GlueJobCalendlyRole",
+  "Command": {
+    "Name": "glueetl",
+    "ScriptLocation": "s3://calendly-marketing-pipeline-data/jobs/silver_to_gold_glue.py",
+    "PythonVersion": "3"
+  },
+  "DefaultArguments": {
+    "--job-language": "python",
+    "--enable-metrics": "true",
+    "--enable-spark-ui": "true",
+    "--enable-glue-datacatalog": "true",
+    "--enable-continuous-cloudwatch-log": "true",
+    "--TempDir": "s3://calendly-marketing-pipeline-data/glue-logs/",
+    "--datalake-formats": "delta",
+    "--additional-python-modules": "pydeequ==1.0.1"
+  },
+  "GlueVersion": "4.0",
+  "NumberOfWorkers": 2,
+  "WorkerType": "G.1X"
+}

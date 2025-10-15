@@ -1,0 +1,5 @@
+{
+  "Arn": "arn:aws:scheduler:::aws-sdk:glue:startJobRun",
+  "RoleArn": "arn:aws:iam::503122374618:role/SchedulerInvokeGlueCalendly",
+  "Input": "{\"JobName\":\"bronze_to_silver_calendly\",\"Arguments\":{\"--bronze_path\":\"s3://calendly-marketing-pipeline-data/bronze/calendly/webhooks/\",\"--silver_path\":\"s3://calendly-marketing-pipeline-data/silver/calendly/events/\"}}"
+}

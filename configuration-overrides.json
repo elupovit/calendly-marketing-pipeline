@@ -1,0 +1,5 @@
+{
+  "monitoringConfiguration": {
+    "s3MonitoringConfiguration": { "logUri": "s3://calendly-marketing-pipeline-data/emr-logs/" }
+  }
+}

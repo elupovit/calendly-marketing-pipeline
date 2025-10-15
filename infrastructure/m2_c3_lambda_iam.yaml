@@ -1,0 +1,35 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Lambda function for Calendly Webhook ingestion (Milestone 2)
+
+Parameters:
+  LambdaRoleArn:
+    Type: String
+    Description: ARN of the IAM role for Lambda
+  SNSTopicArn:
+    Type: String
+    Description: ARN of the SNS alerts topic
+
+Resources:
+  CalendlyWebhookLambda:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: calendlyWebhookHandler
+      Handler: calendlyWebhookHandler.lambda_handler
+      Runtime: python3.12
+      Role: !Ref LambdaRoleArn
+      Timeout: 30
+      MemorySize: 256
+      Environment:
+        Variables:
+          BUCKET_NAME: calendly-marketing-pipeline-data
+          SNS_TOPIC_ARN: !Ref SNSTopicArn
+      Code:
+        S3Bucket: !Sub calendly-lambda-code-${AWS::AccountId}-us-east-1
+        S3Key: calendlyWebhookHandler.zip
+
+Outputs:
+  LambdaFunctionArn:
+    Description: ARN of the Calendly webhook Lambda function
+    Value: !GetAtt CalendlyWebhookLambda.Arn
+    Export:
+      Name: calendly-webhook-function-arn

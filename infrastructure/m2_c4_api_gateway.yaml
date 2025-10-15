@@ -1,0 +1,58 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: HTTP API Gateway for Calendly Webhook Handler (Milestone 2)
+
+Parameters:
+  LambdaArn:
+    Type: String
+    Description: ARN of the calendlyWebhookHandler Lambda
+
+Resources:
+  CalendlyHttpApi:
+    Type: AWS::ApiGatewayV2::Api
+    Properties:
+      Name: calendlyWebhookApi
+      ProtocolType: HTTP
+      CorsConfiguration:
+        AllowOrigins:
+          - "*"
+        AllowMethods:
+          - POST
+        AllowHeaders:
+          - "*"
+
+  LambdaIntegration:
+    Type: AWS::ApiGatewayV2::Integration
+    Properties:
+      ApiId: !Ref CalendlyHttpApi
+      IntegrationType: AWS_PROXY
+      IntegrationUri: !Sub arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${LambdaArn}/invocations
+      PayloadFormatVersion: "2.0"
+
+  WebhookRoute:
+    Type: AWS::ApiGatewayV2::Route
+    Properties:
+      ApiId: !Ref CalendlyHttpApi
+      RouteKey: "POST /webhook"
+      Target: !Join [ "/", [ "integrations", !Ref LambdaIntegration ] ]
+
+  ApiStage:
+    Type: AWS::ApiGatewayV2::Stage
+    Properties:
+      ApiId: !Ref CalendlyHttpApi
+      StageName: "$default"
+      AutoDeploy: true
+
+  LambdaPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName: !Ref LambdaArn
+      Principal: apigateway.amazonaws.com
+      SourceArn: !Sub arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:*/$default/POST/webhook
+
+Outputs:
+  ApiEndpoint:
+    Description: Public endpoint URL for Calendly Webhook
+    Value: !Sub https://${CalendlyHttpApi}.execute-api.${AWS::Region}.amazonaws.com/webhook
+    Export:
+      Name: calendly-webhook-api-endpoint

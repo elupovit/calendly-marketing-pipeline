@@ -1,0 +1,8 @@
+{
+  "event_type": "meeting_scheduled",
+  "event_start_time": "2025-10-13T14:00:00Z",
+  "event_end_time": "2025-10-13T14:30:00Z",
+  "created_at": "2025-10-13T13:55:00Z",
+  "organizer_email": "host@example.com",
+  "invitee_email": "guest@example.com"
+}

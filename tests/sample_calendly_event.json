@@ -1,0 +1,20 @@
+{
+  "event": "invitee.created",
+  "time": "2025-10-08T20:00:00Z",
+  "payload": {
+    "invitee": {
+      "name": "Jane Doe",
+      "email": "jane.doe@example.com",
+      "timezone": "America/New_York"
+    },
+    "event_type": {
+      "uuid": "A1B2C3D4",
+      "name": "30 Minute Meeting"
+    },
+    "tracking": {
+      "utm_source": "LinkedIn",
+      "utm_medium": "ad",
+      "utm_campaign": "q4_2025_demo"
+    }
+  }
+}

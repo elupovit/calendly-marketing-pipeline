@@ -1,0 +1,6 @@
+{
+  "sparkSubmit": {
+    "entryPoint": "s3://calendly-marketing-pipeline-data/jobs/silver_parquet_to_delta.py",
+    "sparkSubmitParameters": "--conf spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension --conf spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog --conf hive.metastore.client.factory.class=com.amazonaws.glue.catalog.metastore.AWSGlueDataCatalogHiveClientFactory --conf spark.ui.enabled=false --conf spark.executor.instances=2 --conf spark.executor.memory=4g --conf spark.executor.cores=2 --conf spark.driver.memory=2g --conf spark.jars.packages=io.delta:delta-spark_2.12:3.1.0"
+  }
+}

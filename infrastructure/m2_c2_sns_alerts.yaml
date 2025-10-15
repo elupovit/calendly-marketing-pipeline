@@ -1,0 +1,28 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: SNS Alerts for Calendly Marketing Pipeline (Milestone 2)
+
+Resources:
+  PipelineAlertsTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      TopicName: calendly-pipeline-alerts
+      DisplayName: Calendly Pipeline Alerts
+      Tags:
+        - Key: Project
+          Value: CalendlyMarketingPipeline
+        - Key: Milestone
+          Value: "2"
+
+  EmailSubscription:
+    Type: AWS::SNS::Subscription
+    Properties:
+      TopicArn: !Ref PipelineAlertsTopic
+      Protocol: email
+      Endpoint: eitlup94@gmail.com
+
+Outputs:
+  PipelineAlertsTopicArn:
+    Description: ARN of the SNS topic for pipeline alerts
+    Value: !Ref PipelineAlertsTopic
+    Export:
+      Name: calendly-pipeline-alerts-arn
