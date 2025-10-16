@@ -1,59 +1,45 @@
-# ----------------------------
-# Core Git Ignore Template
-# Calendly–Marketing Pipeline
-# ----------------------------
-
-# OS junk
+# OS / IDE
 .DS_Store
-Thumbs.db
+*.swp
+*.swo
+*.orig
+.vscode/
+.idea/
+*.code-workspace
 
-# Python / notebooks
+# Python
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
-*.ipynb_checkpoints/
+*.egg-info/
 .venv/
-.env/
-*.env
+.env
+.env.*
+
+# Node (future streamlit extras)
+node_modules/
+
+# Packaging / builds / temp
+dist/
+build/
+*.zip
+*.tar
+*.tar.gz
 *.log
 logs/
-*.sqlite3
-
-# VSCode / JetBrains / IDEs
-.vscode/
-.idea/
-*.swp
-
-# Data / temporary outputs
-*.csv
-*.jsonl
-*.parquet
-*.tmp
-*.bak
-*.zip
-*.gz
-*.tar
-*.tgz
-*_temp/
+.tmp/
 .cache/
-output/
-temp/
-tmp/
 
-# AWS credentials or secrets
-.aws/
-*.pem
-*.key
-*secrets.json
-*credentials.json
+# Test / coverage
+.pytest_cache/
+.coverage
+htmlcov/
 
-# Tests or results generated locally
-/test_output/
-reports/
-coverage/
-*.html
-*.xml
+# Data
+*.parquet
+*.delta
+*.csv
 
-# Ignore all local validation results, keep only code
-!tests/validate_locally.py
+# Jupyter
+.ipynb_checkpoints/
