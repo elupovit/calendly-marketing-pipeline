@@ -6,7 +6,7 @@ on:
     paths:
       - "scripts/**"
       - "deploy_glue_jobs.py"
-  workflow_dispatch: {}
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -27,11 +27,11 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: us-east-1
-          GLUE_SCRIPTS_BUCKET: calendly-marketing-pipeline-data
-          GLUE_SCRIPTS_PREFIX: scripts/
-          GLUE_JOB_NAMES: bronze_to_silver_calendly,calendly-silver-to-gold,optimize-gold-delta,validate-gold-quality
+          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION || 'us-east-1' }}
+          GLUE_SCRIPTS_BUCKET: "calendly-marketing-pipeline-data"
+          GLUE_SCRIPTS_PREFIX: "scripts/"
+          GLUE_JOB_NAMES: "bronze_to_silver_calendly,calendly-silver-to-gold,optimize-gold-delta,validate-gold-quality"
           GLUE_JOB_MAP: 
-bronze_to_silver_calendly:bronze_to_silver_calendly.py,calendly-silver-to-gold:silver_to_gold_glue.py,optimize-gold-delta:optimize_gold_delta.py,validate-gold-quality:validate_gold_quality.py
+"bronze_to_silver_calendly:bronze_to_silver_calendly.py,calendly-silver-to-gold:silver_to_gold_glue.py,optimize-gold-delta:optimize_gold_delta.py,validate-gold-quality:validate_gold_quality.py"
         run: python3 deploy_glue_jobs.py
 
