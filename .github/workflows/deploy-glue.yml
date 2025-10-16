@@ -19,8 +19,7 @@ jobs:
       GLUE_SCRIPTS_BUCKET: calendly-marketing-pipeline-data
       GLUE_SCRIPTS_PREFIX: scripts/
       GLUE_JOB_NAMES: bronze_to_silver_calendly,calendly-silver-to-gold,optimize-gold-delta,validate-gold-quality
-      GLUE_JOB_MAP: 
-bronze_to_silver_calendly:bronze_to_silver_calendly.py,calendly-silver-to-gold:silver_to_gold_glue.py,optimize-gold-delta:optimize_gold_delta.py,validate-gold-quality:validate_gold_quality.py
+      GLUE_JOB_MAP: bronze_to_silver_calendly:bronze_to_silver_calendly.py,calendly-silver-to-gold:silver_to_gold_glue.py,optimize-gold-delta:optimize_gold_delta.py,validate-gold-quality:validate_gold_quality.py
 
     steps:
       - name: Checkout repository
