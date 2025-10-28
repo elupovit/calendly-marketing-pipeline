@@ -1,0 +1,9 @@
+streamlit==1.22
+s3fs
+awswrangler==3.9.0
+pyarrow
+boto3
+botocore
+plotly
+pandas
+numpy
